@@ -1,7 +1,24 @@
 package consumer
 
-import arrowx.StringMonoid.combine
-import arrowx.StringMonoid.empty
+import arrow.Proof
+import arrow.Refined
+import arrow.TypeProof
 
-val x = "1".combine("2") + empty()
-val y: String = x
+inline class TwitterHandle(val handle: String) {
+    companion object : Refined<String, TwitterHandle> {
+        override val constructor = ::TwitterHandle
+        override val validate: String.() -> Map<String, Boolean> = {
+            mapOf(
+                "Should start with '@'" to startsWith("@"),
+                "Should have length <= 16" to (length <= 16),
+                "Should have length > 2" to (length > 2),
+                "Should not contain the word 'twitter'" to !contains("twitter"),
+                "Should not contain the word 'admin'" to !contains("admin")
+            )
+        }
+    }
+}
+
+@Proof(TypeProof.Extension, coerce = true)
+fun String.twitterHandle(): TwitterHandle? =
+    TwitterHandle.from(this)
