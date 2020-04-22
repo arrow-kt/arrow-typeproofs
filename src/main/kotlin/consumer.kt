@@ -24,3 +24,6 @@ inline class TwitterHandle(val handle: String) {
 fun String.twitterHandle(): TwitterHandle? =
     TwitterHandle.from(this)
 
+@Coercion
+fun TwitterHandle.handle(): String =
+    handle
