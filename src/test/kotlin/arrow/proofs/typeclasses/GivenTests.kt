@@ -1,17 +1,15 @@
-package arrow.proofs.typeclasses
+// TODO: It doesn't support a composite package
+package singlepackage
 
-import arrow.Given
 import org.junit.Test
 
 class GivenTest {
 
-    fun <A> given(evidence: @Given A = arrow.given): A =
-        evidence
-    @Given val x = "yes!"
+    // Arrow Meta Compiler Plugin is just applied during production code compilation (src/main/kotlin).
+    // Following best practices, tests just check the production code without including it.
 
     @Test
     fun `coherent polymorphic identity`() {
-        val result = given<String>()
         assert(result == "yes!")
     }
 }
