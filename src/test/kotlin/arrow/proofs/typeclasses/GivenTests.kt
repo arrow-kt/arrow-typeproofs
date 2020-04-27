@@ -12,9 +12,4 @@ class GivenTest {
     fun `coherent polymorphic identity`() {
         assert(result == "yes!")
     }
-
-    @Test
-    fun `dummy Failed Test`() {
-        assert(false)
-    }
 }
