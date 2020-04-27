@@ -11,6 +11,9 @@ on:
 jobs:
   build:
 
+    env:
+      JAVA_OPTS: -Xms512m -Xmx1024m
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +23,10 @@ jobs:
       with:
         java-version: 1.8
         architecture: x64
+    - name: Install local dependencies
+      run: |
+        cd .. ; git clone https://github.com/arrow-kt/arrow-meta.git
+        cd arrow-meta
+        ./gradlew publishMeta
     - name: Build
-      env:
-        JAVA_OPTS: -Xms512m -Xmx1024m
       run: ./gradlew clean build
