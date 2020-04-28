@@ -24,7 +24,7 @@ fun implicitExplicitCoercions() =
     print(TwitterHandle("@aballano").handle(), 1, "@danieeehh")
 
 fun implicitExplicitCoercions2() =
-    print(TwitterHandle("@aballano"), 1, "@danieeehh".twitterHandle())
+    print(TwitterHandle("@aballano"), 1, "@danieeehh")
 
 fun namedFunction() = print(i = 1, s2 = "@danieeehh", s = TwitterHandle("@aballano"))
 
@@ -33,8 +33,8 @@ fun exampleDestructuring() {
     val (s: String, s2: TwitterHandle?) = destructure()
 }
 
-val implicitExplicit: String? = "@danieeehh".twitterHandle()?.handle() // do we need to handle this case ⁉️⁉️⁉️
-
+val implicitExplicit: String? = "@danieeehh".twitterHandle()?.handle() // do we need to handle this case ⁉️
+val implicitExplicit2: TwitterHandle? = "@danieeehh".twitterHandle()?.handle()?.twitterHandle()
 
 @Coercion
 fun String.toInteger(): Int? = this.toInt()
@@ -42,5 +42,17 @@ fun String.toInteger(): Int? = this.toInt()
 @Coercion
 fun Int.toText(): String = this
 
-val coercion: String? = "23".toInteger()?.toText() // do we need to handle this case ⁉️⁉️⁉️
-// val coercion: String? = "23"?.toText() This is invalid after applying the fix
+val d47: String = "47"
+
+val toInteger: Int? = d47.toInteger()
+val coercion: String? = toInteger?.toText()
+
+val coercion2: String? = "47".toInteger()?.toText() // do we need to handle this case ⁉️
+// val coercion2: String? = "47"?.toText() This is invalid after applying the fix
+// val coercion2: String? = "47".toText()
+
+val coercion3: String? = d47.toInteger()?.toText()
+// val coercion3: String? = d47?.toText()
+// val coercion3: String? = d47.toText()
+
+val coercion4: Int? = "47".toInteger()?.toText()?.toInteger()
