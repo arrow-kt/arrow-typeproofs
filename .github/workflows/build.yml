@@ -25,6 +25,7 @@ jobs:
         architecture: x64
     - name: Install local dependencies
       run: |
+        echo "This playground can be run from Intellij IDEA with testing purposes so it uses local dependencies"
         cd .. ; git clone https://github.com/arrow-kt/arrow-meta.git
         cd arrow-meta
         ./gradlew publishMeta
