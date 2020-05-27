@@ -1,41 +1,28 @@
 package consumer.arrow.proofs.demo.unions
 
 import arrow.Union2
-import arrow.first
-import arrow.second
+import arrow.Union3
+import arrow.Union4
+import arrow.Union7
 
-object Success
-object Error
-object Other
+data class UserName(val name: String)
+data class Password(val hash: String)
 
-
-
-/**
- * Unions can accept values implicitly in any of the types they present
- */
-val implicit1: Union2<Success, Error> = Success
-val implicit2: Union2<Success, Error> = Error
-
-/**
- * Unions can accept values implicitly in any of the types they present
- */
-val explicit1: Union2<Success, Error> = Success.first()
-val explicit2: Union2<Success, Error> = Error.second()
-
-/**
- * Types outside of the union won't compile
- */
-//val nope: Union3<Success, ServerFailure, Unauthorized> = 1
-
-/**
- * Unions are commutative
- */
-val com1: Union2<Error, Success> = Success
-val com2: Union2<Success, Error> = com1
-
-//TODO fix exaustiveness in union types
-val patternMatching: Any = when (com1) {
-    is Error -> Unit
-    is Success -> Unit
-    else -> com1
+fun help(id: Union2<UserName, Password>): String? {
+    val userName: UserName? = id
+    val password: Password? = id
+    return userName?.name ?: password?.hash
 }
+
+fun main(args: Array<String>) {
+    val userName = UserName("userName")
+    val password = Password("password")
+    println(help(userName))
+    println(help(password))
+}
+
+fun f(): Union2<String, Union2<Int, Double>> = "null"
+fun g(): Union3<String, Int, Double>? = 2.0
+fun h(): Union4<String, Int, Double, Long> = 2L
+fun union3(): Union3<String, Union2<Int, Double>?, Union2<Int, Double>?>? = 3
+fun union7(): Union7<String, Int, Double, Int, Char, Boolean, Long>? = null
