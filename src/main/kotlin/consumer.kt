@@ -20,7 +20,13 @@ inline class TwitterHandle(val handle: String) {
     }
 }
 
-
+/**
+ * ```kotlin
+ * val x = "some kdoc info"
+ * ```
+ * @see [twitterHandle]
+ * @return [TwitterHandle]
+ */
 @Coercion
 fun String.twitterHandle(): TwitterHandle? =
     TwitterHandle.from(this)
