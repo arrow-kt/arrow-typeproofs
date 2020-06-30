@@ -4,10 +4,6 @@ package singlepackage
 import arrow.*
 import org.junit.Test
 
-fun <A> given(evidence: @Given A = arrow.given): A = evidence
-@Given val x = "yes!"
-val result = given<String>()
-
 class GivenTest {
 
     @Test
