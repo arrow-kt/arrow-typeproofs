@@ -22,7 +22,7 @@ inline class TwitterHandle(val handle: String) {
 
 /**
  * ```kotlin
- * val x = "some kdoc info"
+ * val x: String = "some kdoc info"
  * ```
  * @see [twitterHandle]
  * @return [TwitterHandle]

@@ -5,9 +5,6 @@ import arrow.given
 
 //providers
 @Given
-val x = "yes!"
-
-@Given
 val y: Int = 47
 
 @Given
@@ -39,3 +36,7 @@ fun exampleFun3(
 fun newFun4(
     text: @Given String = given()
 ): String = text
+
+fun main(args: Array<String>) {
+    println(newFun4())
+}
