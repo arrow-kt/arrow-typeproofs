@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenLocal()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap/" }
     }
     dependencies {
         classpath "io.arrow-kt:gradle-plugin:$ARROW_META_VERSION"
@@ -21,12 +22,12 @@ sourceCompatibility = 1.8
 repositories {
     mavenLocal()
     mavenCentral()
+    maven { url "https://dl.bintray.com/kotlin/kotlin-eap/" }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "io.arrow-kt:arrow-meta-prelude:$ARROW_META_VERSION"
-    compile "io.arrow-kt:arrow-core-data:$ARROW_VERSION"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
