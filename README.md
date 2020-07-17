@@ -1,4 +1,4 @@
-## Arrow Typeproofs
+## Arrow Typeproofs Playground
 
 [![Arrow logo](https://raw.githubusercontent.com/arrow-kt/arrow-site/master/docs/img/home/arrow-brand-error.svg?sanitize=true)](https://arrow-kt.io)
 
