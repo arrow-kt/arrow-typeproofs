@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url "https://dl.bintray.com/kotlin/kotlin-eap/" }
     }
     dependencies {
         classpath "io.arrow-kt:gradle-plugin:$ARROW_META_VERSION"
@@ -9,7 +8,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.4.0-rc'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
 }
 
 apply plugin: "io.arrow-kt.arrow"
@@ -22,7 +21,6 @@ sourceCompatibility = 1.8
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://dl.bintray.com/kotlin/kotlin-eap/" }
 }
 
 dependencies {
