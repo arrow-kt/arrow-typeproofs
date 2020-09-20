@@ -6,6 +6,6 @@ import arrow.Given
 fun <A> given(evidence: @Given A = arrow.given): A = evidence
 
 @Given
-val x: String = "yes!"
+internal val x: String = "yes!"
 
 val result = given<String>()

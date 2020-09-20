@@ -5,7 +5,7 @@ import arrow.given
 
 //providers
 @Given
-val y: Int = 47
+internal val y: Int = 47
 
 @Given
 fun givenFun(): Unit = TODO()
