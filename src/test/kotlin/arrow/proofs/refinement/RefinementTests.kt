@@ -1,7 +1,5 @@
 package arrow.proofs.refinement
 
-import arrow.Coercion
-import arrow.Refined
 import org.junit.Test
 
 class RefinementTests{
