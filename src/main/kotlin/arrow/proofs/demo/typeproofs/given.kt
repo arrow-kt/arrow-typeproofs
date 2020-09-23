@@ -8,7 +8,7 @@ import arrow.given
 internal val y: Int = 47
 
 @Given
-fun givenFun(): Unit = TODO()
+internal fun givenFun(): Unit = TODO()
 
 @Given
 object givenObject
