@@ -3,7 +3,7 @@ import arrow.*
 import arrowx.Kind
 import arrowx.Kinded
 
-interface Functor<F> {
+/*interface Functor<F> {
     interface Ops<F, A> {
         val value: Kind<F, A>
         fun <B> fmap(f: (A) -> B): Kind<F, B>
@@ -31,4 +31,4 @@ fun <A> List<A>.functor(): Functor.Ops<`List(_)`, A> =
     ListFunctor(unfix())
 
 
-val kindsResult: List<Int> = listOf(1, 2, 3).fmap { it }
+val kindsResult: List<Int> = listOf(1, 2, 3).fmap { it }*/
